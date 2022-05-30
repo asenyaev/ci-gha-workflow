@@ -1,0 +1,30 @@
+name: OCV iOS Framework
+
+on:
+  push:
+    branches:
+      - asen/small_test
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/OCV-iOS-Framework.yaml'
+  workflow_call:
+  schedule:
+  - cron: "0 0 * * *"
+
+env:
+  PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+  PR_AUTHOR_FORK: ${{ github.event.pull_request.head.repo.full_name }}
+  SOURCE_BRANCH_NAME: ${{ github.head_ref }}
+  TARGET_BRANCH_NAME: ${{ github.base_ref }}
+
+jobs:
+  Build:
+    runs-on: macOS-M1
+    defaults:
+      run:
+        shell: bash
+    steps:
+    - name: Setup infra environment
+      run: printenv
