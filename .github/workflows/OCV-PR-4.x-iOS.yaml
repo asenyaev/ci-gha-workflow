@@ -8,7 +8,7 @@ on:
       - '.github/workflows/OCV-PR-4.x-iOS.yaml'
   workflow_call:
   schedule:
-  - cron: "0 0 * * *"
+  - cron: '0 12 * * *'
 
 env:
   PR_AUTHOR: ${{ github.event.pull_request.user.login }}
