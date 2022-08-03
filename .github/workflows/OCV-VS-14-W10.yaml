@@ -41,7 +41,8 @@ jobs:
       run: cd ${{ github.workspace }} && rm -rf *
     - name: Fetch opencv
       timeout-minutes: 60
-      run: cd ${{ github.workspace }} && git clone --branch ${{ env.TARGET_BRANCH_NAME }} https://github.com/opencv/opencv.git
+      # run: cd ${{ github.workspace }} && git clone --branch ${{ env.TARGET_BRANCH_NAME }} https://github.com/opencv/opencv.git
+      run: cd ${{ github.workspace }} && git clone --branch asen/obsensor_fix_for_win https://github.com/asenyaev/opencv.git
     - name: Set up Python 3.6
       uses: actions/setup-python@v4
       with:
@@ -84,7 +85,8 @@ jobs:
       run: cd ${{ github.workspace }} && rm -rf *
     - name: Fetch opencv
       timeout-minutes: 60
-      run: cd ${{ github.workspace }} && git clone --branch ${{ env.TARGET_BRANCH_NAME }} https://github.com/opencv/opencv.git
+      run: cd ${{ github.workspace }} && git clone --branch asen/obsensor_fix_for_win https://github.com/asenyaev/opencv.git
+      # run: cd ${{ github.workspace }} && git clone --branch ${{ env.TARGET_BRANCH_NAME }} https://github.com/opencv/opencv.git
     - name: Set up Python 3.6
       uses: actions/setup-python@v4
       with:
