@@ -1,0 +1,101 @@
+name: OCV Python Rolling Release
+
+on:
+  schedule:
+    - cron: '0 3 * * 6'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/OCV-Python-Rolling.yaml'
+
+jobs:
+  Linux-ARM64-4x:
+    strategy:
+      fail-fast: false
+      matrix:
+        MATRIX_BRANCH: [4.x]
+    uses: opencv/opencv-python/.github/workflows/build_wheels_linux_arm.yml@4.x
+    with:
+      MATRIX_BRANCH: ${{ matrix.MATRIX_BRANCH }}
+
+  Linux-ARM64-5x:
+    strategy:
+      fail-fast: false
+      matrix:
+        MATRIX_BRANCH: [5.x]
+    uses: opencv/opencv-python/.github/workflows/build_wheels_linux_arm.yml@5.x
+    with:
+      MATRIX_BRANCH: ${{ matrix.MATRIX_BRANCH }}
+
+  Linux-x86_64-4x:
+    strategy:
+      fail-fast: false
+      matrix:
+        MATRIX_BRANCH: [4.x]
+    uses: opencv/opencv-python/.github/workflows/build_wheels_linux.yml@4.x
+    with:
+      MATRIX_BRANCH: ${{ matrix.MATRIX_BRANCH }}
+
+  Linux-x86_64-5x:
+    strategy:
+      fail-fast: false
+      matrix:
+        MATRIX_BRANCH: [5.x]
+    uses: opencv/opencv-python/.github/workflows/build_wheels_linux.yml@5.x
+    with:
+      MATRIX_BRANCH: ${{ matrix.MATRIX_BRANCH }}
+
+  macOS-ARM64-4x:
+    strategy:
+      fail-fast: false
+      matrix:
+        MATRIX_BRANCH: [4.x]
+    uses: opencv/opencv-python/.github/workflows/build_wheels_macos_m1.yml@4.x
+    with:
+      MATRIX_BRANCH: ${{ matrix.MATRIX_BRANCH }}
+
+  macOS-ARM64-5x:
+    strategy:
+      fail-fast: false
+      matrix:
+        MATRIX_BRANCH: [5.x]
+    uses: opencv/opencv-python/.github/workflows/build_wheels_macos_m1.yml@5.x
+    with:
+      MATRIX_BRANCH: ${{ matrix.MATRIX_BRANCH }}
+
+  macOS-x86_64-4x:
+    strategy:
+      fail-fast: false
+      matrix:
+        MATRIX_BRANCH: [4.x]
+    uses: opencv/opencv-python/.github/workflows/build_wheels_macos.yml@4.x
+    with:
+      MATRIX_BRANCH: ${{ matrix.MATRIX_BRANCH }}
+
+  macOS-x86_64-5x:
+    strategy:
+      fail-fast: false
+      matrix:
+        MATRIX_BRANCH: [5.x]
+    uses: opencv/opencv-python/.github/workflows/build_wheels_macos.yml@5.x
+    with:
+      MATRIX_BRANCH: ${{ matrix.MATRIX_BRANCH }}
+
+  Windows-4x:
+    strategy:
+      fail-fast: false
+      matrix:
+        MATRIX_BRANCH: [4.x]
+    uses: opencv/opencv-python/.github/workflows/build_wheels_windows.yml@4.x
+    with:
+      MATRIX_BRANCH: ${{ matrix.MATRIX_BRANCH }}
+
+  Windows-5x:
+    strategy:
+      fail-fast: false
+      matrix:
+        MATRIX_BRANCH: [5.x]
+    uses: opencv/opencv-python/.github/workflows/build_wheels_windows.yml@5.x
+    with:
+      MATRIX_BRANCH: ${{ matrix.MATRIX_BRANCH }}
